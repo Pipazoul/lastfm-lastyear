@@ -5,11 +5,10 @@
         <script src="jquery.js"></script>
     </head>
     <body>
-        
+        <form action="fetch.php" method="post">
             <input type="text" name="pseudo" id="pseudo">
-            <button id="submit">Hello</button>
-        
-        <div id="result"></div>
+            <button class="uk-button uk-button-default" >Submit</button>
+        </form>
     </body>
 </html>
 
