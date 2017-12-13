@@ -1,0 +1,12 @@
+#header{
+    text-align: center;
+}
+
+#header h1 {
+    margin-top: 0;
+    margin-bottom: 100px;
+}
+
+.fa-lastfm {
+    color: #c3000d ;
+}
