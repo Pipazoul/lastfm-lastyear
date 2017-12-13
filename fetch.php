@@ -53,7 +53,8 @@ else{
     print 'Please enter a username';
 }
 
+?>
     
-    
+</body>
 
-//ini_set("allow_url_fopen", 1);
+</html>
