@@ -37,11 +37,13 @@ if(isset($_POST["pseudo"])){
     else{
         
         foreach($obj["recenttracks"]["track"] as $track ){
-        print '<img src="'.$track["image"][3]["#text"].'"><br>';
+        print '<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m"><div class="uk-card-title">';
         print $track["date"]["#text"].' - ';
         print $track["artist"]["#text"].' - ';
         print $track["name"].' - ';
-        print $track["album"]['#text'].'<br>';
+        print $track["album"]['#text'].'</div>';
+        print '<img src="'.$track["image"][1]["#text"].'"><br>';
+        print '</div></div><br>';
         }  
     }
 

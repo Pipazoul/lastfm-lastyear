@@ -1,17 +1,24 @@
-<html>
-    <head>
-        <title>Last fm a year ago</title>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/accordion.almost-flat.css">
-        <script src="jquery.js"></script>
-    </head>
-    <body>
-        <form action="fetch.php" method="post">
-            <input type="text" name="pseudo" id="pseudo">
-            <button class="uk-button uk-button-default" >Submit</button>
-        </form>
-    </body>
-</html>
 <?php include('header.html') ?>
     
     
+    <div class="uk-grid">
+        <div class="uk-width-1-3"></div>
+        <div class="uk-width-1-3">
 
+            <div class="uk-card-default">
+                <div class="uk-card-header ">
+                    <h3 class="uk-card-title">Enter your pseudo</h3>
+                </div>
+                <div class="uk-card-body ">
+                    <form action="fetch.php" method="post">
+                    <input class=" uk-textarea" type="text" name="pseudo" id="pseudo">
+                    <button class="uk-button uk-button-default uk-align-center">Submit</button>
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-3"></div>
+    </div>
+</body>
+
+</html>
