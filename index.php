@@ -12,7 +12,7 @@
                 <div class="uk-card-body ">
                     <form action="fetch.php" method="post">
                     <input class=" uk-textarea" type="text" name="pseudo" id="pseudo">
-                    <button class="uk-button uk-button-default uk-align-center">Submit</button>
+                    <button class="uk-button uk-button-default uk-align-center">Let's go !</button>
                 </form>
                 </div>
             </div>

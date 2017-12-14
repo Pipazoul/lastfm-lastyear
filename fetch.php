@@ -23,7 +23,6 @@ if(isset($_POST["pseudo"])){
 
     $url ='http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='.$lastfm_username.'&from='.$start.'&extended=0&to='.$stop.'&api_key='.$api_key.'&format=json';
 
-    //print "<br><br>URL :".$url."<br><br>";
 
     $json = file_get_contents($url);
 
@@ -32,7 +31,7 @@ if(isset($_POST["pseudo"])){
     //var_dump($obj["recenttracks"]);
     
     if($obj["recenttracks"]["track"] == NULL) {
-        print 'No track found for this date :(';
+        print 'No track found for this date :( or incorrect pseudo';
     }
     else{
         
