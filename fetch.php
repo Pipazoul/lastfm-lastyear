@@ -34,14 +34,17 @@ if(isset($_POST["pseudo"])){
         print 'No track found for this date :( or incorrect pseudo';
     }
     else{
-        
+        print $past_year_start->format('d/m/Y');
         foreach($obj["recenttracks"]["track"] as $track ){
-        print '<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m"><div class="uk-card-title">';
-        print $track["date"]["#text"].' - ';
-        print $track["artist"]["#text"].' - ';
-        print $track["name"].' - ';
-        print $track["album"]['#text'].'</div>';
-        print '<img src="'.$track["image"][1]["#text"].'"><br>';
+        $lastfm_date = new DateTime();
+        $lastfm_date->setTimestamp($track["date"]["uts"]);  
+        print '<div class="track uk-card uk-card-default uk-card-body uk-width-1-2@m uk-animation-slide-top"><div class="uk-card-title">';
+        print $lastfm_date->format('H:i');
+        print '</div>';
+        print '<img src="'.$track["image"][2]["#text"].'">';
+        print $track["name"].'<br>';
+        print  $track["artist"]["#text"].'<br>';
+        print $track["album"]['#text'];
         print '</div></div><br>';
         }  
     }
