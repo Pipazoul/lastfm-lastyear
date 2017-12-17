@@ -1,0 +1,8 @@
+<?php
+
+// Last.fm API Key 
+$lastfm_api_key = "YOUR_LASTFM_API_KEY_HERE";
+
+//Spotify API Key
+$spotify_client_id = "YOUR_SPOTIFY_CLIENT_ID_HERE"; 
+$spotify_client_secret = "YOUR_SPOTIFY_CLIENT_SECRET_HERE"; 

@@ -2,7 +2,9 @@
     
 <?php
 
-$api_key = "75c3f03ec3f14b621c12854fcfcd82d6";
+
+//Contains API Key for Last.fm and Spotify
+include('config.php');
 
 if(isset($_POST["pseudo"])){
     $lastfm_username = $_POST["pseudo"] ;
@@ -21,7 +23,7 @@ if(isset($_POST["pseudo"])){
     $stop = $past_year_stop->getTimestamp();
 
 
-    $url ='http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='.$lastfm_username.'&from='.$start.'&extended=0&to='.$stop.'&api_key='.$api_key.'&format=json';
+    $url ='http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='.$lastfm_username.'&from='.$start.'&extended=0&to='.$stop.'&api_key='.$lastfm_api_key.'&format=json';
 
 
     $json = file_get_contents($url);
