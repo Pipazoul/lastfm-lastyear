@@ -7,7 +7,7 @@
 
             <div class="uk-card-default">
                 <div class="uk-card-header ">
-                    <h3 class="uk-card-title">Enter your pseudo</h3>
+                    <h3 class="uk-card-title">Enter your Lastfm pseudo</h3>
                 </div>
                 <div class="uk-card-body ">
                     <form action="fetch.php" method="post">

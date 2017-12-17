@@ -4,9 +4,19 @@
 
 #header h1 {
     margin-top: 0;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .fa-lastfm {
     color: #c3000d ;
+}
+
+
+#tracks h2 {
+    text-align: center;
+}
+
+.track img{
+    float: left;
+    margin-right: 15px;
 }
