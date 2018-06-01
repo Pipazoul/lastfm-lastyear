@@ -57,51 +57,49 @@ if (isset($_GET['code'])) {
     $json = file_get_contents($url);
     $obj = json_decode($json, true);
 
-    $createPlaylist = $api->createUserPlaylist($me->id, [
-        'name' => 'A year ago'
-    ]);
+ 
+    $trackId = [];
+    $playlistId = '';
 
-    $playlists = $api->getUserPlaylists($me->id, [
+   foreach($obj["recenttracks"]["track"] as $track ){
+
+        // Search the name of the track in the Spotify catalog
+        $tracks = $api->search($track["name"],'track');
+        array_push($trackId, $tracks->tracks->items[0]->id);
+
+    }
+
+
+
+     // Gets the 5 first playlist from the user
+     $playlists = $api->getUserPlaylists($me->id, [
         'limit' => 5
     ]);
-    $playlisSearch = false;
     foreach ($playlists->items as $playlist) {
 
         if($playlist->name == 'A year ago'){
             echo 'OKI';
-            $playlisSearch = true;
-        }
-        elseif($playlisSearch = true) {
-           
-        
+            $playlistId = $playlist->id;
         }
         else {
-
+            $newPlaylist = $api->createUserPlaylist($me->id, [
+                'name' => 'A year ago'
+            ]);
+            $playlistId = $newPlaylist->id;
+            //var_dump($playlistId->id);
         }
         echo '<a href="' . $playlist->external_urls->spotify . '">' . $playlist->name . '</a> <br>';
     }
 
-    
-    
 
-   foreach($obj["recenttracks"]["track"] as $track ){
+    // Adds the song in the users Spotify Playlist
+    $replaceSongsInPlaylist = $api->replaceUserPlaylistTracks($me->id,$playlistId, $trackId);
 
-        /*print $track["name"].'<br>';
-        print  $track["artist"]["#text"].'<br>';
-        print $track["album"]['#text'];*/
-        $results = $api->search($track["artist"]["#text"],'artist');
-        foreach ($results->artists->items as $artist) {
-            echo $artist->name, '<br>';
-            echo $artist->id, '<br>';
-            /*$api->addUserPlaylistTracks($me->id,fetchPlaylistId($createPlaylist->id) , [
-                'spotify:track:'+$artist->id
-            ]);*/
-    
-        }
-    
-
+    if($replaceSongsInPlaylist) {
+        echo 'true';
+        return true;
     }
-
+    
 
 } else {
     $options = [
@@ -118,7 +116,4 @@ if (isset($_GET['code'])) {
     die();
 }
 
-/*print_r(
-    $api->getTrack('4uLU6hMCjMI75M1A2tKUQC')
-);*/
 
