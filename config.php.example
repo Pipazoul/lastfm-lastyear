@@ -1,5 +1,8 @@
 <?php
 
+//The domain url to call the callback
+$domainUrl="http://localhost/lastfm-lastyear/";
+
 // Last.fm API Key 
 $lastfm_api_key = "YOUR_LASTFM_API_KEY_HERE";
 

@@ -19,7 +19,7 @@ else {
 $session = new SpotifyWebAPI\Session(
     $spotify_client_id,
     $spotify_client_secret,
-    'http://localhost/lastfm-lastyear/callback.php'
+    $domainUrl.'callback.php'
 );
 
 $api = new SpotifyWebAPI\SpotifyWebAPI();
