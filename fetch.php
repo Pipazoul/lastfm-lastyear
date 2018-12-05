@@ -31,7 +31,10 @@ function fetchTracks($lastfm_api_key, $lastfm_username) {
         foreach($obj["recenttracks"]["track"] as $track ){
             
         print '<div class="track uk-card uk-card-default uk-card-body uk-width-1-2@m uk-animation-slide-top"><div class="uk-card-title">';
-        print $past_year_start->format('H:i');
+        // Convert lastfm date timestamp to hh-mm date
+        $trackDate =  new DateTime();
+        $trackDate -> setTimestamp($track["date"]["uts"]);
+        print $trackDate -> format('H:i');
         print '</div>';
         print '<img src="'.$track["image"][2]["#text"].'">';
         print $track["name"].'<br>';
@@ -48,7 +51,6 @@ function fetchTracks($lastfm_api_key, $lastfm_username) {
 if(isset($_POST["pseudo"]) && isset($_POST["years"])){
 
     setcookie("pseudo", $_POST["pseudo"]);
-    setcookie("years", $_POST["years"]);
 
     $lastfm_username = $_POST["pseudo"];
     fetchTracks($lastfm_api_key ,$lastfm_username);

@@ -80,7 +80,7 @@ if (isset($_GET['code'])) {
     }
 
     $newPlaylist = $api->createUserPlaylist($me->id, [
-        'name' => 'LastFm - '. $playlistName
+        'name' => 'LastFm - '.$pseudo." - ". $playlistName
     ]);
     $playlistId = $newPlaylist->id;
     
