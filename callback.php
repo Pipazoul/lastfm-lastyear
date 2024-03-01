@@ -3,7 +3,11 @@
 //Spotify API Helper
 require_once 'vendor/autoload.php';
 
-include 'config.php';
+// import from env variables
+$lastfm_api_key = getenv('LASTFM_API_KEY');
+$spotify_client_id = getenv('SPOTIFY_CLIENT_ID');
+$spotify_client_secret = getenv('SPOTIFY_CLIENT_SECRET');
+
 
 
 //Checks if has pseudo cookie

@@ -1,9 +1,12 @@
 <?php
-
-include('header.html');
-
 //Contains API Key for Last.fm and Spotify
-include('config.php');
+//include('config.php');
+
+// import from env variables
+$lastfm_api_key = getenv('LASTFM_API_KEY');
+$spotify_client_id = getenv('SPOTIFY_CLIENT_ID');
+$spotify_client_secret = getenv('SPOTIFY_CLIENT_SECRET');
+
 
 function fetchTracks($lastfm_api_key, $lastfm_username) {
 
@@ -17,9 +20,7 @@ function fetchTracks($lastfm_api_key, $lastfm_username) {
 
     $obj = json_decode($json, true);
 
-    ?>
-     <a href="callback.php"><button class="callback uk-button uk-button-default uk-align-center">Generate a Spotify playlist</button></a>
-    <?php
+
     
     // If no last fm tracks found
     if($obj["recenttracks"]["track"] == NULL) {
@@ -74,6 +75,8 @@ elseif(isset($_COOKIE["pseudo"]) && isset($_COOKIE["years"])){
 else {
     print 'Please enter a username';
 }
+
+include('header.html');
 
 ?>
     

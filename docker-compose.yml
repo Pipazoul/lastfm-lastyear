@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  laststat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: yassinsiouda/laststat
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+    env_file:
+      - .env
